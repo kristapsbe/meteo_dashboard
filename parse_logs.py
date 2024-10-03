@@ -1,3 +1,4 @@
+from settings import key
 from datetime import datetime
 
 coords = []
@@ -12,3 +13,10 @@ with open("server.log", "r") as f:
             ])
 
 print(coords)
+coordstr = ','.join([f"new google.maps.LatLng({c[1]}, {c[2]})" for c in coords])
+
+with open("map.js", "w") as f:
+    f.write("".join(open("map.temp.js", "r").readlines()).replace("<latlng>", coordstr))
+
+with open("map.html", "w") as f:
+    f.write("".join(open("map.temp.html", "r").readlines()).replace("<key>", key))
