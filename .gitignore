@@ -1,3 +1,5 @@
 server.log
 settings.py
 __pycache__/*
+map.js
+map.html
