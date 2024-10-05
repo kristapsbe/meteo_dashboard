@@ -12,7 +12,7 @@ with open("server.log", "r") as f:
                 float(line.split("=")[2].split("&")[0]) # lon
             ])
 
-print(coords)
+#print(coords)
 coordstr = ','.join([f"new google.maps.LatLng({c[1]}, {c[2]})" for c in coords])
 
 with open("map.js", "w") as f:
