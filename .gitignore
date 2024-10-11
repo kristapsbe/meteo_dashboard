@@ -3,3 +3,5 @@ settings.py
 __pycache__/*
 map.js
 map.html
+.DS_Store
+.venv/*
