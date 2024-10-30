@@ -9,14 +9,14 @@ with open("server.log", "r") as f:
     while line := f.readline():
         if '/api/v1/forecast/cities?lat=' in line:
             coords.append([
-                datetime.strptime(line.split(",")[0][1:], '%Y-%m-%d %H:%M:%S'), # time
-                float(line.split("=")[1].split("&")[0]), # lat
-                float(line.split("=")[2].split("&")[0].split(" ")[0]) # lon
+                str(float(line.split("=")[1].split("&")[0])), # lat
+                str(float(line.split("=")[2].split("&")[0].split(" ")[0])), # lon
+                #datetime.strptime(line.split(",")[0][1:], '%Y-%m-%d %H:%M:%S'), # time
             ])
 
-df = pd.DataFrame(coords)
+df = pd.DataFrame([e.split(",") for e in list(set([",".join(c) for c in coords]))])
 #print(df)
-coordstr = ','.join([f"new google.maps.LatLng({c[1]}, {c[2]})" for c in coords])
+coordstr = ','.join([f"new google.maps.LatLng({c[0]}, {c[1]})" for c in coords])
 
 with open("map.js", "w") as f:
     f.write("".join(open("map.temp.js", "r").readlines()).replace("<latlng>", coordstr))
