@@ -11,3 +11,5 @@ activate virtual env
 ```bash
 source .venv/bin/activate
 ```
+
+make it work through the logs hour by hour?
