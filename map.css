@@ -3,25 +3,25 @@
  * Copyright 2019 Google LLC. All Rights Reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-/* 
+/*
  * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
+ * that contains the map.
  */
- #map {
+#map {
     height: 100%;
-  }
-  
-  /* 
-   * Optional: Makes the sample page fill the window. 
+}
+
+/*
+   * Optional: Makes the sample page fill the window.
    */
-  html,
-  body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-  }
-  
-  #floating-panel {
+}
+
+#floating-panel {
     position: absolute;
     top: 10px;
     left: 25%;
@@ -33,9 +33,9 @@
     font-family: "Roboto", "sans-serif";
     line-height: 30px;
     padding-left: 10px;
-  }
-  
-  #floating-panel {
+}
+
+#floating-panel {
     background-color: #fff;
     border: 1px solid #999;
     left: 25%;
@@ -43,6 +43,4 @@
     position: absolute;
     top: 10px;
     z-index: 5;
-  }
-  
-  
+}
