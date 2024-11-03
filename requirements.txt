@@ -1,2 +1,3 @@
 pandas==2.2.3
 jupyterlab==4.3.0
+matplotib==3.9.2
