@@ -12,4 +12,8 @@ activate virtual env
 source .venv/bin/activate
 ```
 
+```bash
+python -m jupyterlab
+```
+
 make it work through the logs hour by hour?
