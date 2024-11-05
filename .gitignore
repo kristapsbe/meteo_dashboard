@@ -5,3 +5,4 @@ map.js
 map.html
 .DS_Store
 .venv/*
+.ipynb_checkpoints/*
