@@ -4,13 +4,14 @@ from settings import key
 from datetime import datetime
 
 coords = []
+rounding = 3
 
 with open("server.log", "r") as f:
     while line := f.readline():
         if '/api/v1/forecast/cities?lat=' in line:
             coords.append([
-                str(float(line.split("=")[1].split("&")[0])), # lat
-                str(float(line.split("=")[2].split("&")[0].split(" ")[0])), # lon
+                str(round(float(line.split("=")[1].split("&")[0]), rounding)), # lat
+                str(round(float(line.split("=")[2].split("&")[0].split(" ")[0]), rounding)), # lon
                 #datetime.strptime(line.split(",")[0][1:], '%Y-%m-%d %H:%M:%S'), # time
             ])
 
