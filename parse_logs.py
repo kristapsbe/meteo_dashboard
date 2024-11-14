@@ -4,7 +4,7 @@ from settings import key
 from datetime import datetime
 
 coords = []
-rounding = 3
+rounding = 2
 
 with open("server.log", "r") as f:
     while line := f.readline():
