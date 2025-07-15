@@ -9,11 +9,14 @@ rounding = 2
 with open("server.log", "r") as f:
     while line := f.readline():
         if '/api/v1/forecast/cities?lat=' in line:
-            coords.append([
-                str(round(float(line.split("=")[1].split("&")[0]), rounding)), # lat
-                str(round(float(line.split("=")[2].split("&")[0].split(" ")[0]), rounding)), # lon
-                #datetime.strptime(line.split(",")[0][1:], '%Y-%m-%d %H:%M:%S'), # time
-            ])
+            try:
+                coords.append([
+                    str(round(float(line.split("=")[1].split("&")[0]), rounding)), # lat
+                    str(round(float(line.split("=")[2].split("&")[0].split(" ")[0]), rounding)), # lon
+                    #datetime.strptime(line.split(",")[0][1:], '%Y-%m-%d %H:%M:%S'), # time
+                ])
+            except:
+                print(f"FAILED {line}")
 
 unique_coords = [e.split(",") for e in list(set([",".join(c) for c in coords]))]
 df = pd.DataFrame(unique_coords)
